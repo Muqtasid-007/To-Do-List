@@ -1,0 +1,215 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #080808; 
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  overflow-x: hidden; 
+}
+
+/* --- H1 Neon Hover Effect --- */
+h1 {
+  margin: 40px 0;
+  text-align: center;
+  cursor: default;
+}
+
+h1 span {
+  display: inline-block;
+  color: #00f2ff;
+  text-shadow: 0 0 15px #00f2ff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: clamp(1.8rem, 5vw, 2.5rem); 
+  transition: 0.3s ease;
+}
+
+h1 span:hover {
+  transform: translateY(-10px) scale(1.2);
+  color: #39ff14; 
+  text-shadow: 0 0 20px #39ff14;
+}
+
+/* --- Input Area (div1) --- */
+#div1 {
+  background: #141414;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  gap: 12px;
+  border: 1px solid #222;
+  margin-bottom: 30px;
+}
+
+#todo-input {
+  flex: 2;
+  padding: 12px 15px;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #00f2ff;
+  outline: none;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+#todo-input:focus {
+  border-color: #00f2ff;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+}
+
+/* --- Buttons Styling --- */
+button {
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#add-btn {
+  flex: 0.8;
+  background-color: transparent;
+  color: #39ff14;
+  border: 2px solid #39ff14;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+#add-btn:hover {
+  background-color: #39ff14;
+  color: #000;
+  box-shadow: 0 0 15px #39ff14;
+}
+
+#delete-btn {
+  flex: 0.4;
+  background-color: transparent;
+  color: #ff0055;
+  border: 2px solid #ff0055;
+  border-radius: 6px;
+  font-size: 24px; /* Icon size */
+}
+
+#delete-btn:hover {
+  background-color: #ff0055;
+  color: #fff;
+  box-shadow: 0 0 15px #ff0055;
+}
+
+/* --- List Area (div2) --- */
+#div2 {
+  width: 100%;
+  max-width: 600px;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  gap: 15px;
+}
+
+.todo:hover {
+  border-color: #00f2ff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 242, 255, 0.1);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.content span {
+  color: #ffffff;
+  font-size: 1rem;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.completed {
+  color: #555 !important;
+  text-decoration: line-through !important;
+  opacity: 0.6;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Icons Styling */
+.material-symbols-outlined {
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.material-symbols-outlined[onclick*="deleteItem"] {
+  color: #ff0055;
+}
+.material-symbols-outlined[onclick*="deleteItem"]:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #ff0055;
+  transform: scale(1.2);
+}
+
+.material-symbols-outlined[onclick*="editTask"] {
+  color: #39ff14;
+}
+.material-symbols-outlined[onclick*="editTask"]:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #39ff14;
+  transform: scale(1.2);
+}
+
+/* --- Checkbox --- */
+input[type="checkbox"] {
+  accent-color: #00f2ff;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* --- Mobile/Tablet Responsive (Media Queries) --- */
+@media (max-width: 600px) {
+  #div1 {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  #add-btn,
+  #delete-btn {
+    width: 100%;
+    padding: 12px;
+    height: 50px;
+  }
+
+  .todo {
+    padding: 12px;
+  }
+}
