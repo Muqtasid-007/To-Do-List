@@ -3,6 +3,17 @@ var listing = document.getElementById("div2");
 var addBtn = document.getElementById("add-btn");
 var deleteBtn = document.getElementById("delete-btn");
 
+// 8. Local storage function to save and retrieve tasks
+function local_storage_data() {
+  var storedList = window.localStorage.getItem("list");
+  storedList = JSON.parse(storedList);
+  if (storedList !== null) {
+    list = storedList;
+  }
+  listItem();
+}
+local_storage_data();
+
 // 1. Add item function
 function completeTask(id) {
   for (var i = 0; i < list.length; i++) {
@@ -112,6 +123,11 @@ function deleteItem(id) {
   for (var i = 0; i < list.length; i++) {
     if (list[i].id === id) {
       list.splice(i, 1);
+      var input = document.getElementById("todo-input");
+      input.value = "";
+      var addBtn = document.getElementById("add-btn");
+      addBtn.innerText = "Add";
+      addBtn.onclick = createItem;
       window.localStorage.setItem("list", JSON.stringify(list));
       break;
     }
@@ -134,13 +150,3 @@ function clearAll() {
   listItem();
 }
 
-// 8. Local storage function to save and retrieve tasks
-function local_storage_data() {
-  var storedList = window.localStorage.getItem("list");
-  storedList = JSON.parse(storedList);
-  if (storedList !== null) {
-    list = storedList;
-  }
-  listItem();
-}
-local_storage_data();
